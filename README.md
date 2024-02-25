@@ -1,40 +1,36 @@
-# chrome extension vue
+# Website Color Extractor Extension
 
-This template should help get you started developing with Vue 3 in Vite.
+This extension provides functionality for extracting main colors from a website, scraping all images from the site, or removing an annoying popup.
 
-## Recommended IDE Setup
+## Installation Instructions
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. **Build the Vue App:**
+    ```bash
+    npm run build
+    ```
 
-## Type Support for `.vue` Imports in TS
+2. **Navigate to Chrome Extensions Panel:**
+    - Open Google Chrome.
+    - Type `chrome://extensions/` in the address bar and press Enter.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+3. **Load the Unpacked Extension:**
+    - Enable Developer mode by toggling the switch in the top right corner.
+    - Click on the "Load unpacked" button.
+    - Select the directory `/dist`.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Usage
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- The Vue app is intended for use when clicking on the extension icon in the taskbar.
+- The extension itself is contained within the `/public` directory.
 
-## Customize configuration
+**Note:** This extension is currently in development and may have limited functionality. Feedback and contributions are welcome!
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/12e35bfd-824d-49c6-8729-cdb17c8e3383)
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/6ed9c45d-b26d-46ed-8622-2e3363ee5651)
+**Delete any DOM element**
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/1df39fdc-4b3e-46a0-a94c-feb81701d4b6)
+**Get website theme colors**
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/5d55ba3f-83dd-4b12-b4d8-4da48d9bc30e)
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/22f7f50c-ff9e-4990-a9e8-fdf59d333fd8)
+**Scrap all images and videos**
+![image](https://github.com/Raphaelmoi/bat-chrome-extension/assets/46026576/a5225297-8984-439a-b11a-9cb20a10a527)
