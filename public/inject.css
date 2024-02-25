@@ -1,0 +1,448 @@
+.nopointer {
+	pointer-events: none;
+}
+.extension-container {
+	all: initial;
+
+	position: relative;
+	z-index: 2147483647;
+	font-size: 18px;
+	cursor: auto;
+
+	--bottom: 20px;
+	--circle: 50px;
+	color: #000;
+}
+
+.extension-container * {
+	color: #000;
+	cursor: auto;
+}
+.myBubble {
+	position: fixed;
+	left: -31px;
+	bottom: var(--bottom);
+	width: var(--circle);
+	height: var(--circle);
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	transition: .5s ease;
+	/* background: radial-gradient(circle, rgba(0, 212, 255, 1) 0%, rgb(16 100 133) 60%, rgba(0, 212, 255, 1) 100%); */
+	/* background: radial-gradient(circle, rgb(221 221 208) 0%, rgb(211 215 196) 60%, rgb(154 163 145) 100%); */
+	background: #fff;
+	/* box-shadow: inset 0 0 0px 3px black; */
+	background-position: center;
+	background-size: var(--circle);
+	cursor: pointer;
+	overflow: hidden;
+}
+.myBubble img {
+	transform: rotate(90deg);
+	transition: .5s ease;
+	cursor: pointer;
+}
+.myBubble:hover {
+	/* background-size: 100px; */
+	opacity: 0.9;
+}
+.extension-container:not(.active) .myBubble:hover {
+	left: -10px;
+}
+.ce-circle-container {
+	display: flex;
+	align-items: center;
+}
+.extension-container.active .myBubble {
+	left: 5px;
+	/* border: 2px black solid; */
+	width: var(--circle);
+	height: var(--circle);
+}
+.extension-container.active .myBubble img {
+	transform: rotate(0);
+}
+.ce-circle {
+	display: none;
+	width: var(--circle);
+	height: var(--circle);
+	background-color: white;
+	box-shadow: 0 0 0 2px rgb(175, 175, 175);
+	border-radius: 50%;
+	transition: .5s ease;
+	color: black;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin: 0 5px;
+	cursor: pointer;
+}
+.ce-circle * {
+	cursor: pointer;
+}
+.ce-circle:hover {
+	/* background-color: #ffa60099; */
+	box-shadow: 0 0 0 2px rgb(109, 109, 109);
+}
+.ce-circle-font {
+	font-size: 2em;
+	font-family: 'Times New Roman', Times, serif;
+	font-style: italic;
+}
+.active .ce-circle-container {
+	position: fixed;
+	bottom: var(--bottom);
+	left: 60px;
+	transition: .5s ease;
+}
+.active .ce-circle {
+	display: flex;
+	animation: test .5s ease-in-out forwards;
+}
+
+.ce-circle.active {
+	background-color: #000;
+	color: white;
+}
+.ce-circle.active svg,
+.ce-circle.active path {
+	fill: white;
+}
+.ce-circle.active img {
+	filter: invert(1);
+}
+@keyframes test {
+	from {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+}
+
+.ce-circle-with-icon svg {
+	width: 30px;
+	height: 30px;
+}
+
+body .focusToDelete:not(.medias-count) {
+	box-shadow: inset 0 0 0 2px orange, 0 0 0 2px orange !important;
+	background-color: rgba(255, 166, 0, 0.3) !important;
+	transition: .3s ease !important;
+	/* position: relative; */
+}
+body .focusToDelete:not(.medias-count) a {
+	pointer-events: none;
+}
+
+body .medias-count {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: .5rem 1rem;
+	background: #000;
+	color: white;
+	font-size: 18px !important;
+	z-index: 2147483647;
+}
+body .medias-count:not(.medias-count.full-aside) {
+	cursor: pointer;
+}
+body .ce-colors-panel,
+body .medias-count.full-aside {
+	max-height: 100vh;
+	width: auto;
+	max-width: 410px;
+	min-width: 230px;
+	background: #fff;
+	color: #000;
+	overflow: auto;
+	border-radius: 15px;
+	right: 8px;
+	bottom: 8px;
+	border: 2px #dbdbdb solid;
+	max-height: 70vh;
+	overflow: auto;
+}
+.imageExtractorResContainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+body .ce-colors-panel > span,
+.imageExtractorResContainer > p {
+	width: 100%;
+	margin: 8px 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+}
+.selectedImgPreview {
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	color: #000;
+	position: relative;
+	background: #eee;
+	transition: .5s;
+}
+.selectedImgPreview:hover {
+	background: #ccc;
+}
+.selectedImgPreview > video,
+.selectedImgPreview > img {
+	width: 110px;
+	height: 110px;
+	object-fit: scale-down;
+	margin-right: auto;
+	border: 1px #e1e1e1 solid;
+}
+.selectedImgPreview > video {
+	width: 169px;
+}
+.selectedImgPreview > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #00000080;
+	transition: .3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	opacity: 0;
+}
+.selectedImgPreview > div > span {
+	width: 100%;
+	color: white;
+	text-align: center;
+	font-size: 16px;
+}
+.selectedImgPreview:hover > div {
+	opacity: 1;
+}
+.selectedImgPreview a {
+	/* margin-left: 8px; */
+	font-size: 14px;
+	color: #000;
+	cursor: pointer;
+}
+.selectedImgPreview a img {
+	width: 30px;
+	height: 30px;
+	filter: invert(1);
+	display: block;
+}
+/* INPUT COLOR */
+.panel-picker {
+	--opposite-color: #000;
+	display: flex;
+	align-items: center;
+}
+body .panel-picker input[type="color"] {
+	-webkit-appearance: none !important;
+	border: none !important;
+	margin: 0 !important;
+	cursor: pointer !important;
+	width: 100% !important;
+	height: 30px !important;
+	padding: 0 !important;
+	max-width: unset;
+	position: relative;
+}
+
+body .panel-picker:hover input[type="color"] {
+	opacity: .7;
+}
+body .panel-picker input[type="color"]::before {
+	position: absolute;
+	width: var(--circle);
+	height: var(--circle);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 35px;
+	line-height: 35px;
+	font-style: italic;
+	content: '';
+}
+body .panel-picker input[type="color"]::after {
+	content: "Other colors ►";
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 1.1rem;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+body .panel-picker input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+body .panel-picker input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+/* INPUT COLOR */
+.ce-colors-panel {
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	/* background: #f4f6f7; */
+	z-index: 9999;
+	max-width: 359px;
+	font-family: "Segoe UI";
+	overflow: hidden;
+	scrollbar-width: thin;
+	transition: 1s ease;
+	padding: 2rem 1rem 1rem;
+	max-width: 400px;
+	/* border: 2px #4f545c solid; */
+	border-radius: 4px;
+}
+
+body .color-picker-btn {
+	border: 1px black solid;
+	width: 30px !important;
+	height: 30px;
+	cursor: pointer;
+	border-radius: 18px;
+	padding: 4px;
+	margin-right: 1rem;
+}
+body .color-picker-btn img {
+	cursor: pointer;
+}
+.topRight .ce-colors-panel,
+.topRight.medias-count {
+	bottom: unset;
+	right: unset;
+	left: 1em;
+	top: 1em;
+}
+.ce-colors-panel b {
+	font-weight: 600;
+}
+.ce-colors-panel ::-webkit-scrollbar {
+	height: 8px;
+}
+.ce-colors-panel ::-webkit-scrollbar-thumb {
+	background: #ccc;
+	border-radius: 4px;
+}
+
+.ce-colors-panel .colors-line {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 8px 0;
+	padding-bottom: 4px;
+}
+.ce-colors-panel .colors-line.main-color {
+	justify-content: flex-start;
+}
+.ce-colors-panel .colors-line.main-color .colorItem {
+	margin-left: auto;
+}
+.ce-colors-panel .colors-line.main-color > div {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.ce-colors-panel .colors-line.main-color .colorItem {
+	height: 50px;
+	padding: 4px;
+	margin-right: .5em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100px;
+	flex: unset;
+}
+
+.ce-colors-panel .colors-line .colorItem {
+	flex: 1;
+	height: 50px;
+	background: #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: .8em;
+	margin: 0 2px;
+	padding: 2px 10px;
+	width: 180px;
+	position: relative;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-weight: 500;
+	user-select: none;
+	border: 1px solid;
+	border-radius: 3px;
+}
+.ce-colors-panel > span {
+	margin-top: 1rem;
+	display: block;
+}
+.ce-colors-panel .colors-line .colorItem:active {
+	/* animation css */
+	animation: copiedcolor 1s ease-out;
+}
+@keyframes copiedcolor {
+	from {
+		opacity: .5;
+	}
+}
+/* .ce-colors-panel .colors-line > div > span {
+	font-size: .8em;
+	margin-right: 2px;
+} */
+
+.ce-colors-panel .colors-line.shades-color {
+	overflow-x: auto;
+	display: inline-flex;
+	justify-content: flex-start;
+	width: 100%;
+}
+.ce-colors-panel .colors-line.shades-color > div {
+	flex: unset;
+	width: 80px;
+}
+.medias-count .close-panel,
+.ce-colors-panel .close-panel {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 20px;
+	height: 20px;
+	font-size: .9em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-weight: 900;
+	margin-top: 0;
+}
+.close-panel img {
+	cursor: pointer;
+}
+.medias-count .close-panel.move-panel,
+.ce-colors-panel .close-panel.move-panel {
+	right: 1.8em;
+}
+
+.btn-color-picker {
+	border: 1px black solid;
+	border-radius: 27px;
+	overflow: hidden;
+	width: 173px;
+	margin: 0 auto 0.15rem;
+}
